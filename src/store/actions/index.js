@@ -1,0 +1,1 @@
+export { fetchContacts, filterContacts } from './contacts';

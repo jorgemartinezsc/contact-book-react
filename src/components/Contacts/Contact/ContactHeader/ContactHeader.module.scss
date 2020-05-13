@@ -1,0 +1,79 @@
+@import '../../../../scss/variables';
+
+.ContactHeader {
+    display: flex;
+    padding: 38px 47px;
+    border-bottom: 1px solid $border;
+}
+
+.Initial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 26px;
+    border-radius: 50%;
+    width: 68px;
+    height: 68px;
+    background-color: black;
+    
+    & p {
+        font-size: 44px;
+        font-weight: 300;
+        color: $white;
+    }
+}
+
+.BackgrColor1 {
+    background-color: $random1;
+}
+
+.BackgrColor2 {
+    background-color: $random2;
+}
+
+.BackgrColor3 {
+    background-color: $random3;
+}
+
+.BackgrColor4 {
+    background-color: $random4;
+}
+
+.BackgrColor5 {
+    background-color: $random5;
+}
+
+.BackgrColor6 {
+    background-color: $random6;
+}
+
+.BackgrColor7 {
+    background-color: $random7;
+}
+
+.BackgrColor8 {
+    background-color: $random8;
+}
+
+.BackgrColor9 {
+    background-color: $random9;
+}
+
+.Name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & h2 {
+        font-size: 33px;
+        font-weight: 300;
+    }
+
+    & p {
+        margin-top: 8px;
+        text-transform: capitalize;
+        font-size: 14px;
+        color: $lightgrey;
+    }
+    
+}

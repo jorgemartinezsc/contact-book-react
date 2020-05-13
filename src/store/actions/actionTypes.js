@@ -1,0 +1,2 @@
+export const FETCH_CONTACTS = 'FETCH_CONTACTS';
+export const FILTER_CONTACTS = 'FILTER_CONTACTS';

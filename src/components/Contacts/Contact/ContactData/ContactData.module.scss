@@ -1,0 +1,10 @@
+@import '../../../../scss/variables';
+
+.ContactData {
+    padding: 31px 48px;
+    border-bottom: 1px solid $border;
+
+    p + p {
+        margin-top: 24px;        
+    }
+}

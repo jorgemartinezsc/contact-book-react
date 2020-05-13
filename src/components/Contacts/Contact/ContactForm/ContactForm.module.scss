@@ -1,0 +1,11 @@
+@import '../../../../scss/variables';
+
+.ContactForm {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 335px;
+    height: 100%;
+    border-left: 1px solid $border;
+    background-color: $white;
+}

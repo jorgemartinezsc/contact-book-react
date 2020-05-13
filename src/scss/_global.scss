@@ -1,0 +1,25 @@
+@import './variables';
+
+// Global
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+}
+
+body,
+button,
+input,
+textarea {
+    font-family: 'Encode Sans', sans-serif;
+    font-size: 16px;
+    color: $default;
+}
+
+a {
+    text-decoration: none;
+}

@@ -1,0 +1,17 @@
+.ContactsItem {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    padding-left: 18px;
+    color: #333;
+    cursor: pointer;
+
+    &:hover {
+        font-weight: bold;
+    }
+}
+
+.SelectedItem {
+    background-color: #ebf0ef;
+}
