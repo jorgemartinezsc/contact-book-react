@@ -33,6 +33,10 @@ class NavigationItems extends Component {
         ]
     };
 
+    componentDidMount() {
+        this.props.onFetchContacts('all');
+    }
+
     selectContactGroupHandler(group) {
         this.props.onFetchContacts(group);
     }

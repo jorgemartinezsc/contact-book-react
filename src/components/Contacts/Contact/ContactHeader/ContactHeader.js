@@ -8,6 +8,14 @@ class ContactHeader extends Component {
         this.setInitialBackgrColor();
     };
 
+    shouldComponentUpdate(nextProps) {
+        if (this.props.name !== nextProps.name) {
+            this.setInitialBackgrColor();
+            console.log(this.initialClasses);
+            return true;
+        }
+    };
+
     initialClasses = [styles.Initial];
 
     setInitialBackgrColor = () => {
@@ -23,9 +31,9 @@ class ContactHeader extends Component {
             styles.BackgrColor9
         ];
     
-        const randomBackgroundColor = backgroundColors[Math.floor(Math.random() * backgroundColors.length)];
-
-        this.initialClasses.push(randomBackgroundColor)
+        const randomIndex = Math.floor(Math.random() * backgroundColors.length);
+        this.initialClasses.splice(1, 1);
+        this.initialClasses.push(backgroundColors[randomIndex]);
     };
 
     render() {

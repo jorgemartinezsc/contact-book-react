@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import styles from './ContactCard.module.scss';
 
@@ -35,16 +36,37 @@ class ContactCard extends Component {
     };
 
     render() {
-        return (
+        let contactCard = (
             <div className={styles.ContactCard}>
-                <ContactHeader name="Jorge" surname="Martinez" group="family" />
-                <ContactData email="test@test.com" phone="654321987" />
-                {!this.state.editing && <Button btnType="Edit" clicked={this.editContactHandler}>Edit</Button>}
-                {!this.state.adding && <Button btnType="Add" clicked={this.addContactHandler}>+</Button>}
-                {(this.state.adding || this.state.editing) && <ContactForm editing={this.state.editing} cancel={this.cancelHandler} />}
+                <p>Welcome to your Contact Book!</p>
             </div>
         );
+
+        if (this.props.contact) {
+            contactCard = (
+                <div className={styles.ContactCard}>
+                    <ContactHeader 
+                        name={this.props.contact.name} 
+                        surname={this.props.contact.surname} 
+                        group={this.props.contact.group} />
+                    <ContactData 
+                        email={this.props.contact.email} 
+                        phone={this.props.contact.phone} />
+                    {!this.state.editing && <Button btnType="Edit" clicked={this.editContactHandler}>Edit</Button>}
+                    {!this.state.adding && <Button btnType="Add" clicked={this.addContactHandler}>+</Button>}
+                    {(this.state.adding || this.state.editing) && <ContactForm editing={this.state.editing} cancel={this.cancelHandler} />}
+                </div>
+            );
+        }
+
+        return contactCard;
     };
 };
 
-export default ContactCard;
+const mapStateToProps = state => {
+    return {
+        contact: state.contactSelected
+    };
+};
+
+export default connect(mapStateToProps, null)(ContactCard);

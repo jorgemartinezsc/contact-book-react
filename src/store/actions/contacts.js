@@ -45,3 +45,10 @@ export const fetchContacts = (group) => {
             });
     };
 };
+
+export const selectContact = (contact) => {
+    return {
+        type: actionTypes.SELECT_CONTACT,
+        contact: contact
+    }
+}
