@@ -9,15 +9,29 @@ import Button from '../../components/UI/Button/Button';
 
 class ContactCard extends Component {
     state = {
+        adding: false,
         editing: false
     };
 
-    editContactHandler = () => {
-        this.setState({editing: true})
+    addContactHandler = () => {
+        this.setState({
+            adding: true,
+            editing: false
+        })
     };
 
-    editContactCancelHandler = () => {
-        this.setState({editing: false})
+    editContactHandler = () => {
+        this.setState({
+            adding: false,
+            editing: true
+        })
+    };
+
+    cancelHandler = () => {
+        this.setState({
+            adding: false,
+            editing: false
+        })
     };
 
     render() {
@@ -26,7 +40,8 @@ class ContactCard extends Component {
                 <ContactHeader name="Jorge" surname="Martinez" group="family" />
                 <ContactData email="test@test.com" phone="654321987" />
                 {!this.state.editing && <Button btnType="Edit" clicked={this.editContactHandler}>Edit</Button>}
-                {this.state.editing && <ContactForm clicked={this.editContactCancelHandler} />}
+                {!this.state.adding && <Button btnType="Add" clicked={this.addContactHandler}>+</Button>}
+                {(this.state.adding || this.state.editing) && <ContactForm editing={this.state.editing} cancel={this.cancelHandler} />}
             </div>
         );
     };

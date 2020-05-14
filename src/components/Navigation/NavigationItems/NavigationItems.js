@@ -34,7 +34,7 @@ class NavigationItems extends Component {
     };
 
     selectContactGroupHandler(group) {
-        this.props.onGroupSelected(group);
+        this.props.onFetchContacts(group);
     }
 
     render() {
@@ -47,19 +47,27 @@ class NavigationItems extends Component {
         );
 
         return (
-            <nav className={styles.NavigationItems}>
-                <ul>
-                    {navigationList}
-                </ul>
-            </nav>
+            <header className={styles.NavigationItems}>
+                <nav>
+                    <ul>
+                        {navigationList}
+                    </ul>
+                </nav>
+            </header>
         );
     };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => {
     return {
-        onGroupSelected: (group) => dispatch(actions.filterContacts(group))
+        contacts: state.contacts
     }
 }
 
-export default connect(null, mapDispatchToProps)(NavigationItems);
+const mapDispatchToProps = dispatch => {
+    return {
+        onFetchContacts: (group) => dispatch(actions.fetchContacts(group))
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavigationItems);

@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
 
 import './index.scss';
 
@@ -10,7 +11,11 @@ import * as serviceWorker from './serviceWorker';
 
 import contactsReducer from './store/reducers/contacts';
 
-const store = createStore(contactsReducer);
+const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
+
+const store = createStore(contactsReducer, composeEnhancers(
+  applyMiddleware(thunk)
+));
 
 const app = (
   <Provider store={store} >

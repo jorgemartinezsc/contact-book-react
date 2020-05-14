@@ -14,11 +14,13 @@ class Layout extends Component {
 
     render() {
         return (
-            <main className={styles.Layout}>
+            <div className={styles.Layout}>
                 <NavigationItems />
-                <ContactsList />
-                <ContactCard />
-            </main>
+                <main>
+                    <ContactsList />
+                    <ContactCard />
+                </main>
+            </div>
         );
     };
 };
