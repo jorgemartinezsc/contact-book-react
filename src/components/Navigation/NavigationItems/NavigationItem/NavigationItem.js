@@ -7,7 +7,11 @@ const NavigationItem = props => {
     let classes = [styles.NavigationItem];
 
     if (props.group === 'all' || props.group === 'favorites') {
-        classes.push(styles.GreaterItem)
+        classes.push(styles.GreaterItem);
+    }
+
+    if (props.selected === props.group) {
+        classes.push(styles.SelectedItem);
     }
 
     return <li 

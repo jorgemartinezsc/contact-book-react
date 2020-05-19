@@ -1,0 +1,13 @@
+@import '../../scss/variables';
+
+.Navigation {
+    grid-area: navigation;
+    background-color: $green;
+
+    h1 {
+        margin: 1rem;
+        font-size: 24px;
+        font-weight: 700;
+        color: $white;
+    }
+}

@@ -1,4 +1,21 @@
+@import '../../scss/variables';
+
 .ContactCard {
     position: relative;
     width: calc(100% - 275px);
+}
+
+.WelcomeCard {
+    margin: 10rem 10rem;
+    text-align: center;
+
+    h2 {
+        font-size: 33px;
+        font-weight: 500;
+        color: $green;
+    }
+
+    p {
+        margin-top: 1rem;
+    }
 }

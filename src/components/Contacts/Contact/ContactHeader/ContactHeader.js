@@ -9,12 +9,22 @@ class ContactHeader extends Component {
     };
 
     shouldComponentUpdate(nextProps) {
-        if (this.props.name !== nextProps.name) {
-            this.setInitialBackgrColor();
-            console.log(this.initialClasses);
+        if (this.props.id !== nextProps.id) {
+            console.log('Updated!');
             return true;
+        } else {
+            console.log('Not updated!');
+            return false;
         }
     };
+
+    componentDidUpdate() {
+        this.setInitialBackgrColor();
+    }
+
+    // componentDidMount() {
+    //     this.setInitialBackgrColor();
+    // }
 
     initialClasses = [styles.Initial];
 
@@ -34,6 +44,7 @@ class ContactHeader extends Component {
         const randomIndex = Math.floor(Math.random() * backgroundColors.length);
         this.initialClasses.splice(1, 1);
         this.initialClasses.push(backgroundColors[randomIndex]);
+        console.log(this.initialClasses);
     };
 
     render() {

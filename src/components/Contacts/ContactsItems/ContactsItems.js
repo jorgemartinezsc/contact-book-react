@@ -11,7 +11,7 @@ class ContactsItems extends Component {
     state = null;
 
     deleteContactHandler = (id) => {
-        console.log('Deleting contact with id: ' + id)
+        console.log('Deleting contact with id: ' + id);
     };
 
     render() {
@@ -20,6 +20,8 @@ class ContactsItems extends Component {
                 key={contactEl.id} 
                 name={contactEl.name} 
                 surname={contactEl.surname} 
+                selected={this.props.contact ? contactEl.id === this.props.contact.id : false}
+                delete={() => this.deleteContactHandler(contactEl.id)}
                 clicked={() => this.props.onSelectContact(contactEl)} />
         );
 
@@ -31,7 +33,8 @@ class ContactsItems extends Component {
 
 const mapStateToProps = state => {
     return {
-        contacts: state.contacts
+        contacts: state.contacts,
+        contact: state.contactSelected
     };
 };
 

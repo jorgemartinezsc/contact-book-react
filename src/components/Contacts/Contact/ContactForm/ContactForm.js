@@ -7,6 +7,7 @@ import { updateObject, checkValidity } from '../../../../shared/utility';
 
 import Button from '../../../UI/Button/Button';
 import Input from '../../../UI/Input/Input';
+import { Plus } from '../../../../assets/svg/svg';
 
 class ContactForm extends Component {
     state = {
@@ -176,7 +177,9 @@ class ContactForm extends Component {
             <div className={styles.ContactForm}>
                 <h3>{this.state.title}</h3>
                 {form}
-                <Button clicked={this.props.cancel}>X</Button>
+                <Button btnType="CancelForm" clicked={this.props.cancel}>
+                    <Plus />
+                </Button>
             </div>
         );
     };

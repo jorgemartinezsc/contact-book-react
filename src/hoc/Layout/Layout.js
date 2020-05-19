@@ -2,20 +2,16 @@ import React, { Component } from 'react';
 
 import styles from './Layout.module.scss';
 
-import NavigationItems from '../../components/Navigation/NavigationItems/NavigationItems';
+import Navigation from '../../components/Navigation/Navigation';
 import ContactsList from '../../containers/ContactsList/ContactsList';
 import ContactCard from '../../containers/ContactCard/ContactCard';
 
 
 class Layout extends Component {
-    // state = {
-
-    // };
-
     render() {
         return (
             <div className={styles.Layout}>
-                <NavigationItems />
+                <Navigation />
                 <main>
                     <ContactsList />
                     <ContactCard />

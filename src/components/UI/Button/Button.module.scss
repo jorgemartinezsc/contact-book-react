@@ -5,6 +5,7 @@
     height: 42px;
     border: none;
     border-radius: 4px;
+    padding: 0;
     background-color: $button-default;
     font-weight: 600;
     cursor: pointer;
@@ -20,12 +21,20 @@
 }
 
 .Add {
+    display: flex;
+    justify-content: center;
+    align-content: center;
     position: absolute;
     bottom: 0;
     right: 0;
     margin: 0 30px 30px 0;
     background-color: $button-add;
     color: $white;
+
+    svg {
+        width: 19px;
+        height: 19px;
+    }
 }
 
 .EditSubmit {
@@ -42,4 +51,34 @@
     padding-right: 24px;
     background-color: $button-add;
     color: $white;
+}
+
+.DeleteContact {
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border: 2px solid $white;
+    border-radius: 50%;
+    background-color: $lightgreen;
+    color: rgba(74, 74, 74, 0.45);
+
+    svg {
+        width: 11px;
+        height: 11px;
+        color: $default;
+        transform: rotateZ(45deg)
+    }
+}
+
+.CancelForm {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    svg {
+        width: 19px;
+        height: 19px;
+        transform: rotateZ(45deg);
+    }
+    
 }

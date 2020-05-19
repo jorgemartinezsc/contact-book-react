@@ -30,7 +30,8 @@ class NavigationItems extends Component {
                 name: 'Work',
                 group: 'work'
             }
-        ]
+        ],
+        isSelected: 'all'
     };
 
     componentDidMount() {
@@ -39,6 +40,7 @@ class NavigationItems extends Component {
 
     selectContactGroupHandler(group) {
         this.props.onFetchContacts(group);
+        this.setState({isSelected: group});
     }
 
     render() {
@@ -47,6 +49,7 @@ class NavigationItems extends Component {
                 key={navigationEl.group} 
                 group={navigationEl.group}
                 name={navigationEl.name} 
+                selected={this.state.isSelected}
                 clicked={() => this.selectContactGroupHandler(navigationEl.group)} />
         );
 
