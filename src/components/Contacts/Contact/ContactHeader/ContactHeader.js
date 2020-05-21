@@ -5,52 +5,52 @@ import styles from './ContactHeader.module.scss';
 class ContactHeader extends Component {
     constructor(props) {
         super(props);
-        this.setInitialBackgrColor();
+        this.state = {
+            initialClasses: [styles.Initial, this.randomColorClass()]
+        };
     };
 
-    shouldComponentUpdate(nextProps) {
-        if (this.props.id !== nextProps.id) {
-            console.log('Updated!');
-            return true;
-        } else {
-            console.log('Not updated!');
-            return false;
-        }
+    // shouldComponentUpdate(nextProps) {
+    //     if (this.props.id !== nextProps.id) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     };
+    // };
+
+    componentDidUpdate(prevProps) {
+        if (this.props.id !== prevProps.id) {
+            this.setInitialBackgrColor();
+        };
     };
 
-    componentDidUpdate() {
-        this.setInitialBackgrColor();
+    backgroundColors = [
+        styles.BackgrColor1, 
+        styles.BackgrColor2, 
+        styles.BackgrColor3, 
+        styles.BackgrColor4, 
+        styles.BackgrColor5, 
+        styles.BackgrColor6, 
+        styles.BackgrColor7, 
+        styles.BackgrColor8, 
+        styles.BackgrColor9
+    ];
+
+    randomColorClass = () => {
+        const randomIndex = Math.floor(Math.random() * this.backgroundColors.length);
+        return this.backgroundColors[randomIndex];
     }
 
-    // componentDidMount() {
-    //     this.setInitialBackgrColor();
-    // }
-
-    initialClasses = [styles.Initial];
-
-    setInitialBackgrColor = () => {
-        const backgroundColors = [
-            styles.BackgrColor1, 
-            styles.BackgrColor2, 
-            styles.BackgrColor3, 
-            styles.BackgrColor4, 
-            styles.BackgrColor5, 
-            styles.BackgrColor6, 
-            styles.BackgrColor7, 
-            styles.BackgrColor8, 
-            styles.BackgrColor9
-        ];
-    
-        const randomIndex = Math.floor(Math.random() * backgroundColors.length);
-        this.initialClasses.splice(1, 1);
-        this.initialClasses.push(backgroundColors[randomIndex]);
-        console.log(this.initialClasses);
+    setInitialBackgrColor = () => {   
+        this.setState({
+            initialClasses: [styles.Initial, this.randomColorClass()]
+        });
     };
 
     render() {
         return (
             <div className={styles.ContactHeader}>
-                <div className={this.initialClasses.join(' ')}>
+                <div className={this.state.initialClasses.join(' ')}>
                     <p>{this.props.name[0]}</p>
                     </div>
                 <div className={styles.Name}>
