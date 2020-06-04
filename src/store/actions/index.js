@@ -1,1 +1,1 @@
-export { fetchContacts, selectContact } from './contacts';
+export { fetchContacts, selectContact, createContact, selectGroup, deleteContact } from './contacts';

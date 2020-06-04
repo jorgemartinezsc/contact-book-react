@@ -18,9 +18,9 @@ const Input = props => {
             inputElement = (
                 <select 
                     className={inputClasses.join(' ')}
-                    value={props.value} 
+                    defaultValue=""
                     onChange={props.changed}>
-                        <option disabled value={props.value}>{props.elementConfig.placeholder}</option>
+                        <option value="" disabled>{props.elementConfig.placeholder}</option>
                     {props.elementConfig.options.map(option => (
                         <option key={option.value} value={option.value}>
                             {option.displayValue}

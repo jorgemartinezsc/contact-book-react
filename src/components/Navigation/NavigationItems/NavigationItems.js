@@ -30,8 +30,7 @@ class NavigationItems extends Component {
                 name: 'Work',
                 group: 'work'
             }
-        ],
-        isSelected: 'all'
+        ]
     };
 
     componentDidMount() {
@@ -40,7 +39,6 @@ class NavigationItems extends Component {
 
     selectContactGroupHandler(group) {
         this.props.onFetchContacts(group);
-        this.setState({isSelected: group});
     }
 
     render() {
@@ -49,7 +47,7 @@ class NavigationItems extends Component {
                 key={navigationEl.group} 
                 group={navigationEl.group}
                 name={navigationEl.name} 
-                selected={this.state.isSelected}
+                selected={this.props.groupSelected}
                 clicked={() => this.selectContactGroupHandler(navigationEl.group)} />
         );
 
@@ -67,13 +65,15 @@ class NavigationItems extends Component {
 
 const mapStateToProps = state => {
     return {
-        contacts: state.contacts
+        contacts: state.contacts,
+        groupSelected: state.groupSelected
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchContacts: (group) => dispatch(actions.fetchContacts(group))
+        onFetchContacts: (group) => dispatch(actions.fetchContacts(group)),
+        onSelectGroup: (group) => dispatch(actions.selectGroup(group))
     }
 };
 

@@ -10,8 +10,8 @@ import ContactsItem from './ContactsItem/ContactsItem';
 class ContactsItems extends Component {
     state = null;
 
-    deleteContactHandler = (id) => {
-        console.log('Deleting contact with id: ' + id);
+    deleteContactHandler = (contact) => {
+        this.props.onDelectContact(contact)
     };
 
     render() {
@@ -21,7 +21,7 @@ class ContactsItems extends Component {
                 name={contactEl.name} 
                 surname={contactEl.surname} 
                 selected={this.props.contact ? contactEl.id === this.props.contact.id : false}
-                delete={() => this.deleteContactHandler(contactEl.id)}
+                delete={() => this.deleteContactHandler(contactEl)}
                 clicked={() => this.props.onSelectContact(contactEl)} />
         );
 
@@ -40,8 +40,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSelectContact: (id) => dispatch(actions.selectContact(id))
-    }
-}
+        onSelectContact: (id) => dispatch(actions.selectContact(id)),
+        onDelectContact: (contact) => dispatch(actions.deleteContact(contact))
+    };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactsItems);

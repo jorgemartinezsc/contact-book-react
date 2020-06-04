@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+import { connect } from 'react-redux';
+
+import * as actions from '../../../../store/actions/index';
 
 import styles from './ContactForm.module.scss';
 
@@ -131,17 +133,14 @@ class ContactForm extends Component {
     };
 
     createContactHandler = (event) => {
-        // event.preventDefault()
+        event.preventDefault()
 
-        // const formData = {};
-        // for (let formElementIdentifier in this.state.contactForm) {
-        //     formData[formElementIdentifier] = this.state.contactForm[formElementIdentifier].value
-        // };
-        // const contact = {...formData};
-        // console.log(contact);
-        // axios.post('https://contact-book-react.firebaseio.com/contacts.json', contact)
-        //     .then(response => console.log(response))
-        //     .catch(error => console.log(error));
+        const formData = {};
+        for (let formElementIdentifier in this.state.contactForm) {
+            formData[formElementIdentifier] = this.state.contactForm[formElementIdentifier].value
+        };
+        const contact = {...formData};
+        this.props.onCreateContact(contact)
     }
 
     render() {
@@ -185,5 +184,11 @@ class ContactForm extends Component {
     };
 };
 
+const mapDispatchToProps = dispatch => {
+    return {
+        onCreateContact: (contact) => dispatch(actions.createContact(contact))
+    };
+};
 
-export default ContactForm;
+
+export default connect(null, mapDispatchToProps)(ContactForm);
